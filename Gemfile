@@ -1,7 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'faraday', '~> 0.9.2'
+gem 'faraday'
 
 group :test do
-gem 'rspec', '~> 3.10'
+  gem 'rspec'
+  gem 'vcr'
+  gem 'webmock'
 end
