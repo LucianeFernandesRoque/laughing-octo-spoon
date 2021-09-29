@@ -1,18 +1,17 @@
-require 'faraday'
 class PopularNames
-	attr_reader :client # boa
+  attr_reader :client
 
-	def initialize(client)
-		@client = client
-	end
+  def initialize(client)
+    @client = client
+  end
 
-	def get #construo =>objetivo: mostrar o que meu método faz, exemplo faz um get em uma determinada url
-		@client = client.get(url)
-	end
+  def get
+    @client = client.get(url)
+  end
 
-	private
+  private
 
-	def url
-		'https://servicodados.ibge.gov.br/api/v2/censos/nomes/'
-	end
+  def url
+    'https://servicodados.ibge.gov.br/api/v2/censos/nomes/'
+  end
 end
