@@ -5,7 +5,7 @@ describe PopularNames do
 		expect(response.status).to eq 200
 	end
 
-  xit 'retorna os nomes' do
+  it 'retorna os nomes', :vcr do
     response = PopularNames.new.get
     expect(response.body).to include 'MARIA' #resposta do objeto de classe ::operador de resolução de escopo
   end
