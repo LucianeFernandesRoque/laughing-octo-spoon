@@ -1,16 +1,16 @@
-require 'faraday'
-attr_reader :state
 class StateName
+  attr_reader :state
 
-  def initialize
-    @state = states #substantivos
+  def initialize(state)
+    @state = state #substantivos
   end
   
-  def get_state(url)
+  def get(url)
     @state = state.get(url)
   end
 
   private
+
   def url#comportamento
     'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
   end
