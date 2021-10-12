@@ -1,3 +1,5 @@
 # laughing-octo-spoon
 ## Ibge-2.0
-popular_names.rb
+- Projeto criado para explorar ruby.
+- Aprimoramento de testes
+- Abstração e services
