@@ -1,11 +1,11 @@
-class StateName
+class StateNames
   attr_reader :state
 
   def initialize(state)
     @state = state #substantivos
   end
   
-  def get(url)
+  def get
     @state = state.get(url)
   end
 
