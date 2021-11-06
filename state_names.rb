@@ -1,18 +1,12 @@
 require 'pry'
 class StateNames
-  attr_reader :states, :parse_estados
-
+  attr_reader :states
   def initialize(states)
     @states = states # substantivos
-    @parse_estados = []
   end
 
   def get
     @states = states.get(url)
-  end
-
-  def all_states
-    @parse_estados = @states
   end
 
   private
