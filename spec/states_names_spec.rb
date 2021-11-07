@@ -1,11 +1,20 @@
 require 'faraday'
-require_relative '../state_names'
+require_relative '../states_names'
 
-describe StateNames do
+describe StatesNames do
   let(:states) { Faraday }
-  let(:state_names) { StateNames.new(states).get }
+  let(:states_names) { StatesNames.new(states,'id','nome','sigla').get }
+
 
   it 'resposta da url é 200', :vcr do
-    expect(state_names.status).to eq 200
+    expect(states_names.status).to eq 200
+  end
+
+  context '#estados_all' do
+    it 'verifica a quantidade de estados', :vcr do
+        states_names.estados_all
+        binding.pry
+      expect(states_names.estados_all).to eq []
+    end
   end
 end
