@@ -1,27 +1,20 @@
-require 'pry'
+require 'faraday'
+require 'json'
 class StatesNames
-  attr_reader :states, :id, :sigla, :nome
 
-  def initialize(states, id, sigla, nome)
-    @states = states # substantivos
-    @id = id
-    @sigla = sigla
-    @nome = nome
+  def call
+   response = Faraday.get(url)
+   JSON.parse(response.body, symbolize_names: true)
+
   end
 
-  def get
-    @states = states.get(url)
-  end
 
-  def estados_all
-    binding.pry
-    url.states = Json.parse(response.body, symbolize_names: true)
-    url.map do |_estado|
-    estados =  estado[:id], estado[:sigla], estado[:nome]
-    end
-  end
-  self.estados_all
-
+  #def estados_all
+   # url.states = Json.parse(response.body, symbolize_names: true)
+   # url.map do |estado|
+   # estados =  estado[:id], estado[:sigla], estado[:nome]
+   # end
+  #end
 
   private
 
