@@ -7,14 +7,6 @@ class StatesNames
    JSON.parse(response.body, symbolize_names: true)
   end
 
-
-  #def estados_all
-   # url.states = Json.parse(response.body, symbolize_names: true)
-   # url.map do |estado|
-   # estados =  estado[:id], estado[:sigla], estado[:nome]
-   # end
-  #end
-
   private
 
   def url # comportamento
