@@ -2,12 +2,13 @@ require 'faraday'
 require 'json'
 class StatesNames
 
-  def call
-   response = Faraday.get(url)
-   JSON.parse(response.body, symbolize_names: true)
+  def parse
+    response = Faraday.get(url)
+    estados = JSON.parse(response.body, symbolize_names: true)
+    estados.map do |estado|
+      estados = estado[:id], estado[:nome], estado[:sigla]
+    end
   end
-
-  private
 
   def url # comportamento
     'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
