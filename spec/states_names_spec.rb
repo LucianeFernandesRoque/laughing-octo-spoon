@@ -6,7 +6,7 @@ describe StatesNames do
     let(:states_names) { StatesNames.new }
     it 'retorna o faraday', :vcr do
       estado = states_names.parse
-      expect(estado.last).to eq('53, "Distrito Federal", "DF"')
+      expect(estado.first).to(eq'11,"Rondonia","RO"')
     end
   end
 end
