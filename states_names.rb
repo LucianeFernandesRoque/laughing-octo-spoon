@@ -2,7 +2,7 @@ require 'faraday'
 require 'json'
 class StatesNames
 
-  def parse
+  def parse_success
     response = Faraday.get(url)
     estados = JSON.parse(response.body, symbolize_names: true)
     estados.map do |estado|
