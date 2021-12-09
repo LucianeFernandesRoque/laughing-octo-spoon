@@ -2,24 +2,32 @@ require 'faraday'
 require_relative '../states_names'
 
 describe StatesNames do
-  let(:states_names) { StatesNames.new }
+  # let(:states_names) { StatesNames.new(states) }
 
-  xcontext 'when the code is success' do
-    let(:response) { Faraday.get }
-    let(:url_request) { StatesNames.new.url }
+  context 'when the code is success' do
+    let(:states) { Faraday }
+    let(:states_names) { StatesNames.new(states).get }
 
-    it 'return o status', :vcr do
-      expect(response.url.code).to eq 200
+    xit 'return o status', :vcr do
+      expect(states_names.status).to eq 200
     end
 
-    xcontext 'when the code is request' do
+    context 'when the code is request' do
+      before(:each) do
+        employees_response = {
+          status: 'failled',
+          data: []
+        }
+        stub_request(:get, 'https://servicodados.ibge.govxyz')
+          .to_return(status: 404, body: employees_response.to_json)
+      end
       it 'return o status', :vcr do
         expect(response.url.code).to eq '404'
       end
     end
   end
 
-  context '.parse_success' do
+  xcontext '.parse_success' do
     let(:estado) { states_names.parse_success }
     context 'when the api return states' do
       it 'return all states', :vcr do

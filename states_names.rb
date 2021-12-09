@@ -1,13 +1,12 @@
-require 'faraday'
-require 'json'
 class StatesNames
+  attr_reader :states
 
-  def parse_success
-    response = Faraday.get(url)
-    estados = JSON.parse(response.body, symbolize_names: true)
-    estados.map do |estado|
-      estados = estado[:id], estado[:nome], estado[:sigla]
-    end
+  def initialize(states)
+    @states = states
+  end
+
+  def get
+    @states = states.get(url)
   end
 
   def url # comportamento
