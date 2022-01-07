@@ -1,23 +1,26 @@
 require 'faraday'
+require 'json'
 class StatesNames
-  attr_reader :states, :states_parse, :response, :get
+  attr_writer :states, :states_parse, :response, :url, :dados
 
   def initialize(states)
     @states = states
   end
 
-  def get
-    @states = states.get(response)
+  def response
+    @states = Faraday.get(url)
   end
 
-  def states_parse
-    json = JSON.parse { response.body symbolize_names: true }
-    response = json.map do |state|
-      states = state[:id], state[:sigla], state[:nome]
+  def self.states_parse
+    json = JSON.parse(response.body, symbolize_names: true)
+    json.map do |dados|
+      @dados = dados[:id], dados[:sigla], dados[:nome]
     end
   end
 
-  def response
-    'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
+  def url
+   'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
   end
+
+
 end
