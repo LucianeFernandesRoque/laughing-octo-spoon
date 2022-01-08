@@ -1,12 +1,14 @@
 require 'faraday'
-require_relative '../states_names'
+require_relative '../../states_names'
 require 'vcr'
 require 'spec_helper'
 
 describe 'StatesNames' do
   context 'when success '
+
   let(:states_faraday) { Faraday }
   let(:states_names) { StatesNames.new(states_faraday) }
+
   it 'response with code 200', :vcr do
     expect(states_names.response.status).to eq 200
   end
