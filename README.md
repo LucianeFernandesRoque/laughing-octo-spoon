@@ -46,6 +46,8 @@ em desenvolvimento
 
 * [Rspec](https://rspec.info/documentation/) - Utilizada para testes.
 
+* [VCR](https://rubygems.org/gems/vcr/versions/3.0.1?locale=pt-BR)- Utilizada para salvar a resposta da API
+
 
 
 ## ✒️ Autora: Luciane Fernandes Roque

@@ -9,6 +9,11 @@ describe PopularNames do
     it 'return code ok', :vcr do
       expect(popular_names.status).to eq 200
     end
+    context 'when response api' do
+      it 'the include name maria', :vcr do
+        expect(popular_names.body).to include('MARIA')
+      end
+    end
   end
 
   context 'when the request failure' do
