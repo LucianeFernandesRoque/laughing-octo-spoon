@@ -1,5 +1,5 @@
 require 'faraday'
-require_relative '../../states_names'
+require_relative '../../app/request/states_names'
 require 'vcr'
 require 'spec_helper'
 

@@ -2,7 +2,7 @@
 FROM ruby:3.0.0
 RUN apt-get update
 #create a diretory
-RUN mkdir -p /app  
+RUN mkdir -p /app
 WORKDIR /app 
 COPY Gemfile ./Gemfile
 COPY Gemfile.lock ./Gemfile.lock

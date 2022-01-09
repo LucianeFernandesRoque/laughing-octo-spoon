@@ -1,12 +1,12 @@
 class PopularNames
-  attr_reader :client
+  attr_reader :names
 
-  def initialize(client)
-    @client = client
+  def initialize(names)
+    @names = names
   end
 
   def get
-    @client = client.get(url)
+    @names = names.get(url)
   end
 
   private
