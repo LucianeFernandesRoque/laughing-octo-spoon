@@ -12,6 +12,7 @@ class StatesNames
   end
 
   private
+
   def url
     'https://servicodados.ibge.gov.br/api/v1/localidades/estados'
   end
@@ -22,11 +23,8 @@ class StatesNames
 
     json = JSON.parse(response_body, symbolize_names: true)[:data]
 
-    result = json.map do |state|
-
-    state = new(state_id:state[:id],uf:state[:sigla], nome:state[:nome])
+    json.map do |state|
+      state = new(state_id: state[:id], uf: state[:sigla], nome: state[:nome])
     end
-    result
   end
 end
-

@@ -3,15 +3,21 @@ require_relative '../../app/request/popular_names'
 
 describe PopularNames do
   context 'when the request status success ' do
-    it 'return code 200', :vcr do
-      result = VCR.use_cassette(result) { PopularNames.names_all }
-
-      expect(result).to eq 200
+    let(:response) do
+      Faraday.get('https://servicodados.ibge.gov.br/api/v2/censos/nomes/')
     end
-    context 'when response api' do
-      it 'the include name maria', :vcr do
-        expect(popular_names.body).to include('MARIA')
-      end
+    let(:popular_names) { PopularNames.new('nome', 'rank', 'frequency') }
+
+    it 'responds with 200', :vcr do
+      expect(response.status).to eq(200)
+    end
+  end
+
+  context 'when response api' do
+    result = VCR.use_cassette(result) { PopularNames.names_all }
+    it 'the include name maria' do
+      expect(result[0]).to have_attributes(nome: 'MARIA', frequency: nil,
+                                           rank: 1)
     end
   end
 
@@ -31,11 +37,12 @@ describe PopularNames do
 
   describe '#parsernames' do
     context 'is success' do
-      it 'return response body with values names', :vcr do
-        result = VCR.use_cassette(result) { PopularNames.names_all }
-        expect(result.length).to eq(20)
-        expect(nome).to eq('@nome MARIA')
-        expect(result.frequency).to eq()
+      result = VCR.use_cassette(result) { PopularNames.names_all }
+      it 'return response body with values names' do
+        expect(result.size).to eq(20)
+        expect(result[0]).to have_attributes(nome: 'MARIA')
+        expect(result[0]).to have_attributes(rank: 1)
+        expect(result[0]).to have_attributes(frequency: nil)
       end
     end
   end

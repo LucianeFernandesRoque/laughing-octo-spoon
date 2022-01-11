@@ -8,13 +8,13 @@ describe 'StatesNames' do
 
     it 'response with code 200', :vcr do
       expect(states_names.status).to eq 200
-      end
-      context 'when response api names' do
-        it 'must to include SP', :vcr do
-          expect(states_names.body).to include 'SP'
-        end
+    end
+    context 'when response api names' do
+      it 'must to include SP', :vcr do
+        expect(states_names.body).to include 'SP'
       end
     end
+  end
 
   context 'when failled' do
     before(:each) do
