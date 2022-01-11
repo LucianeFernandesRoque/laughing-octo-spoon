@@ -1,33 +1,21 @@
 require 'faraday'
 require 'json'
+require 'vcr'
 class PopularNames
-  attr_reader :names, :nome, :rank, :frequency
+  attr_reader  :nome, :rank, :frequency
 
-  def initialize(names, nome, rank, frequency)
-    @names = names
+  def initialize(nome, rank, frequency)
     @nome = nome
     @rank = rank
-    @frequency = frequency 
-  end
-
-  def get
-    @names = names.get(url)
+    @frequency = frequency
   end
 
 
-  def url
-    'https://servicodados.ibge.gov.br/api/v2/censos/nomes/'
-  end
-
-  def names_all
-    response = names.get(url)
-    return {} unless response.status == 200
-
+  def self.names_all
+    response = Faraday.get('https://servicodados.ibge.gov.br/api/v2/censos/nomes/')
     json = JSON.parse(response.body, symbolize_names: true)
-
-    json.map do |popular|
-      popular = popular[:nome],popular[:rank],popular[:frequency]
+    result = json.map do |item|
+      item = new( item[:nome], item[:rank], item[:frequency] )
     end
-   puts popular
   end
 end
