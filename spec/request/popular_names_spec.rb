@@ -3,19 +3,33 @@ require_relative '../../app/request/popular_names'
 
 describe PopularNames do
   context 'when the request status success ' do
-
-    let(:popular_names) { PopularNames.new('nome', 'rank', 'frequency') }
-
+    let(:response_all_names) do
+      Faraday.get('https://servicodados.ibge.gov.br/api/v2/censos/nomes/')
+    end
+    let(:popular_names) do
+      VCR.use_cassette('popular_names') do
+        PopularNames.new(:nome, :frequency, :rank)
+      end
+    end
     it 'responds with 200', :vcr do
-      expect(response.status).to eq(200)
+      expect(response_all_names.status).to eq(200)
     end
   end
 
   context 'when response api' do
-    result = VCR.use_cassette(result) { PopularNames.names_all }
+    let(:result_names) do
+      VCR.use_cassette('result_names') do
+        PopularNames.names_all
+      end
+    end
+
     it 'the include name maria' do
-      expect(result[0]).to have_attributes(nome: 'MARIA', frequency: nil,
-                                           rank: 1)
+      expect(result_names.size).to eq(20)
+      expect(result_names[0].nome).to eq 'MARIA'
+      expect(result_names[0].rank).to eq 1
+      expect(result_names[0].frequency).to eq nil
+      expect(result_names[10].nome).to eq 'LUIZ'
+      expect(result_names[10].rank).to eq 11
     end
   end
 
