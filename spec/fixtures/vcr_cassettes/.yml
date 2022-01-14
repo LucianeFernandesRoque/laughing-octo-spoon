@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://servicodados.ibge.gov.br/api/v1/localidades/estados
+    uri: https://servicodados.ibge.gov.br/api/v2/censos/nomes/
     body:
       encoding: US-ASCII
       string: ''
@@ -15,39 +15,25 @@ http_interactions:
       message: OK
     headers:
       date:
-      - Wed, 12 Jan 2022 22:53:26 GMT
+      - Fri, 14 Jan 2022 01:41:40 GMT
       server:
       - Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips mod_qos/11.5
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '1259'
       cache-control:
-      - max-age=2592000
+      - max-age=1
       expires:
-      - Fri, 11 Feb 2022 22:52:26 GMT
-      access-control-allow-headers:
-      - Content-Type
+      - Fri, 14 Jan 2022 01:41:40 GMT
       access-control-allow-methods:
       - GET
       access-control-allow-origin:
       - "*"
-      age:
-      - '60'
-      content-length:
-      - '2446'
       connection:
       - close
-      content-type:
-      - application/json; charset=utf-8
     body:
       encoding: UTF-8
-      string: '[{"id":11,"sigla":"RO","nome":"Rondônia","regiao":{"id":1,"sigla":"N","nome":"Norte"}},{"id":12,"sigla":"AC","nome":"Acre","regiao":{"id":1,"sigla":"N","nome":"Norte"}},{"id":13,"sigla":"AM","nome":"Amazonas","regiao":{"id":1,"sigla":"N","nome":"Norte"}},{"id":14,"sigla":"RR","nome":"Roraima","regiao":{"id":1,"sigla":"N","nome":"Norte"}},{"id":15,"sigla":"PA","nome":"Pará","regiao":{"id":1,"sigla":"N","nome":"Norte"}},{"id":16,"sigla":"AP","nome":"Amapá","regiao":{"id":1,"sigla":"N","nome":"Norte"}},{"id":17,"sigla":"TO","nome":"Tocantins","regiao":{"id":1,"sigla":"N","nome":"Norte"}},{"id":21,"sigla":"MA","nome":"Maranhão","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":22,"sigla":"PI","nome":"Piauí","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":23,"sigla":"CE","nome":"Ceará","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":24,"sigla":"RN","nome":"Rio
-        Grande do Norte","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":25,"sigla":"PB","nome":"Paraíba","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":26,"sigla":"PE","nome":"Pernambuco","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":27,"sigla":"AL","nome":"Alagoas","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":28,"sigla":"SE","nome":"Sergipe","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":29,"sigla":"BA","nome":"Bahia","regiao":{"id":2,"sigla":"NE","nome":"Nordeste"}},{"id":31,"sigla":"MG","nome":"Minas
-        Gerais","regiao":{"id":3,"sigla":"SE","nome":"Sudeste"}},{"id":32,"sigla":"ES","nome":"Espírito
-        Santo","regiao":{"id":3,"sigla":"SE","nome":"Sudeste"}},{"id":33,"sigla":"RJ","nome":"Rio
-        de Janeiro","regiao":{"id":3,"sigla":"SE","nome":"Sudeste"}},{"id":35,"sigla":"SP","nome":"São
-        Paulo","regiao":{"id":3,"sigla":"SE","nome":"Sudeste"}},{"id":41,"sigla":"PR","nome":"Paraná","regiao":{"id":4,"sigla":"S","nome":"Sul"}},{"id":42,"sigla":"SC","nome":"Santa
-        Catarina","regiao":{"id":4,"sigla":"S","nome":"Sul"}},{"id":43,"sigla":"RS","nome":"Rio
-        Grande do Sul","regiao":{"id":4,"sigla":"S","nome":"Sul"}},{"id":50,"sigla":"MS","nome":"Mato
-        Grosso do Sul","regiao":{"id":5,"sigla":"CO","nome":"Centro-Oeste"}},{"id":51,"sigla":"MT","nome":"Mato
-        Grosso","regiao":{"id":5,"sigla":"CO","nome":"Centro-Oeste"}},{"id":52,"sigla":"GO","nome":"Goiás","regiao":{"id":5,"sigla":"CO","nome":"Centro-Oeste"}},{"id":53,"sigla":"DF","nome":"Distrito
-        Federal","regiao":{"id":5,"sigla":"CO","nome":"Centro-Oeste"}}]'
-  recorded_at: Wed, 12 Jan 2022 22:53:26 GMT
+      string: '[{"nome":"MARIA","regiao":0,"freq":11734129,"rank":1,"sexo":""},{"nome":"JOSE","regiao":0,"freq":5754529,"rank":2,"sexo":""},{"nome":"ANA","regiao":0,"freq":3089858,"rank":3,"sexo":""},{"nome":"JOAO","regiao":0,"freq":2984119,"rank":4,"sexo":""},{"nome":"ANTONIO","regiao":0,"freq":2576348,"rank":5,"sexo":""},{"nome":"FRANCISCO","regiao":0,"freq":1772197,"rank":6,"sexo":""},{"nome":"CARLOS","regiao":0,"freq":1489191,"rank":7,"sexo":""},{"nome":"PAULO","regiao":0,"freq":1423262,"rank":8,"sexo":""},{"nome":"PEDRO","regiao":0,"freq":1219605,"rank":9,"sexo":""},{"nome":"LUCAS","regiao":0,"freq":1127310,"rank":10,"sexo":""},{"nome":"LUIZ","regiao":0,"freq":1107792,"rank":11,"sexo":""},{"nome":"MARCOS","regiao":0,"freq":1106165,"rank":12,"sexo":""},{"nome":"LUIS","regiao":0,"freq":935905,"rank":13,"sexo":""},{"nome":"GABRIEL","regiao":0,"freq":932449,"rank":14,"sexo":""},{"nome":"RAFAEL","regiao":0,"freq":821638,"rank":15,"sexo":""},{"nome":"FRANCISCA","regiao":0,"freq":725642,"rank":16,"sexo":""},{"nome":"DANIEL","regiao":0,"freq":711338,"rank":17,"sexo":""},{"nome":"MARCELO","regiao":0,"freq":693215,"rank":18,"sexo":""},{"nome":"BRUNO","regiao":0,"freq":668217,"rank":19,"sexo":""},{"nome":"EDUARDO","regiao":0,"freq":632664,"rank":20,"sexo":""}]'
+  recorded_at: Fri, 14 Jan 2022 01:41:39 GMT
 recorded_with: VCR 6.0.0

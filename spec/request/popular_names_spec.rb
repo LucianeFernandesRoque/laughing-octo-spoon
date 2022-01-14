@@ -3,9 +3,7 @@ require_relative '../../app/request/popular_names'
 
 describe PopularNames do
   context 'when the request status success ' do
-    let(:response) do
-      Faraday.get('https://servicodados.ibge.gov.br/api/v2/censos/nomes/')
-    end
+
     let(:popular_names) { PopularNames.new('nome', 'rank', 'frequency') }
 
     it 'responds with 200', :vcr do

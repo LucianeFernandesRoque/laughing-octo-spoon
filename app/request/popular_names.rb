@@ -9,19 +9,12 @@ class PopularNames
     @frequency = frequency
   end
 
-  def get
-    nomes.get(url)
-  end
 
   def self.names_all
     response = Faraday.get('https://servicodados.ibge.gov.br/api/v2/censos/nomes/')
     json = JSON.parse(response.body, symbolize_names: true)
-    result = json.map do |item|
-      item = new(item[:nome], item[:rank], item[:frequency])
+    item = json.map do |item|
+      result = new(item[:nome], item[:rank], item[:frequency])
     end
-  end
-
-  def url
-    
   end
 end
