@@ -23,5 +23,5 @@
 /storage/*
 !/storage/.keep
 
-/spec/fixures/vcr_cassets
+/spec/fixures/vcr_cassets/
 /public/assets

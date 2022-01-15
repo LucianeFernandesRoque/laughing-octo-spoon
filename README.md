@@ -5,7 +5,8 @@
 
 Esse projeto tem como o objetivo de extrair dados da API-IBGE.
 - Bater na API estados do IBGE e retornar os nomes mais populares.
-
+- Salvar esses dados em um banco de dados PostgreSql
+- Retornar esses dados usando Sinatra.
 ### 📋 Pré-requisitos
 
 ```
@@ -46,8 +47,10 @@ em desenvolvimento
 
 * [Rspec](https://rspec.info/documentation/) - Utilizada para testes.
 
+* [Postgres]
+
 * [VCR](https://rubygems.org/gems/vcr/versions/3.0.1?locale=pt-BR)- Utilizada para salvar a resposta da API
 
-
+* [Sinatra](http://sinatrarb.com/)
 
 ## ✒️ Autora: Luciane Fernandes Roque
